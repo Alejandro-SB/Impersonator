@@ -35,25 +35,26 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRemoveUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listUsers = new System.Windows.Forms.ListBox();
-            this.btnRemoveUser = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listModules = new System.Windows.Forms.ListBox();
-            this.txtModulePath = new System.Windows.Forms.TextBox();
-            this.btnSearchDir = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtModuleArguments = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtModuleName = new System.Windows.Forms.TextBox();
-            this.btnAddModule = new System.Windows.Forms.Button();
             this.btnRemoveModule = new System.Windows.Forms.Button();
+            this.btnAddModule = new System.Windows.Forms.Button();
+            this.txtModuleName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtModuleArguments = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSearchDir = new System.Windows.Forms.Button();
+            this.txtModulePath = new System.Windows.Forms.TextBox();
+            this.listModules = new System.Windows.Forms.ListBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
             this.notifyContextMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,10 +98,21 @@
             this.groupBox1.Controls.Add(this.listUsers);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 409);
+            this.groupBox1.Size = new System.Drawing.Size(192, 396);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
+            // 
+            // btnRemoveUser
+            // 
+            this.btnRemoveUser.Enabled = false;
+            this.btnRemoveUser.Location = new System.Drawing.Point(96, 326);
+            this.btnRemoveUser.Name = "btnRemoveUser";
+            this.btnRemoveUser.Size = new System.Drawing.Size(90, 23);
+            this.btnRemoveUser.TabIndex = 2;
+            this.btnRemoveUser.Text = "Remove";
+            this.btnRemoveUser.UseVisualStyleBackColor = true;
+            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
             // 
             // btnAddUser
             // 
@@ -154,17 +166,6 @@
             this.listUsers.TabIndex = 1;
             this.listUsers.SelectedIndexChanged += new System.EventHandler(this.listUsers_SelectedIndexChanged);
             // 
-            // btnRemoveUser
-            // 
-            this.btnRemoveUser.Enabled = false;
-            this.btnRemoveUser.Location = new System.Drawing.Point(96, 326);
-            this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(90, 23);
-            this.btnRemoveUser.TabIndex = 2;
-            this.btnRemoveUser.Text = "Remove";
-            this.btnRemoveUser.UseVisualStyleBackColor = true;
-            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnRemoveModule);
@@ -179,88 +180,10 @@
             this.groupBox2.Controls.Add(this.listModules);
             this.groupBox2.Location = new System.Drawing.Point(240, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(548, 409);
+            this.groupBox2.Size = new System.Drawing.Size(548, 396);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Applications";
-            // 
-            // listModules
-            // 
-            this.listModules.FormattingEnabled = true;
-            this.listModules.Location = new System.Drawing.Point(6, 19);
-            this.listModules.Name = "listModules";
-            this.listModules.Size = new System.Drawing.Size(536, 186);
-            this.listModules.TabIndex = 0;
-            this.listModules.SelectedIndexChanged += new System.EventHandler(this.listModules_SelectedIndexChanged);
-            // 
-            // txtModulePath
-            // 
-            this.txtModulePath.Enabled = false;
-            this.txtModulePath.Location = new System.Drawing.Point(10, 283);
-            this.txtModulePath.Name = "txtModulePath";
-            this.txtModulePath.Size = new System.Drawing.Size(450, 20);
-            this.txtModulePath.TabIndex = 1;
-            // 
-            // btnSearchDir
-            // 
-            this.btnSearchDir.Location = new System.Drawing.Point(467, 283);
-            this.btnSearchDir.Name = "btnSearchDir";
-            this.btnSearchDir.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchDir.TabIndex = 2;
-            this.btnSearchDir.Text = "Open";
-            this.btnSearchDir.UseVisualStyleBackColor = true;
-            this.btnSearchDir.Click += new System.EventHandler(this.btnSearchDir_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 266);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Application Path";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 311);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Arguments";
-            // 
-            // txtModuleArguments
-            // 
-            this.txtModuleArguments.Location = new System.Drawing.Point(10, 326);
-            this.txtModuleArguments.Name = "txtModuleArguments";
-            this.txtModuleArguments.Size = new System.Drawing.Size(450, 20);
-            this.txtModuleArguments.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 227);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Application Name";
-            // 
-            // txtModuleName
-            // 
-            this.txtModuleName.Location = new System.Drawing.Point(10, 243);
-            this.txtModuleName.Name = "txtModuleName";
-            this.txtModuleName.Size = new System.Drawing.Size(450, 20);
-            this.txtModuleName.TabIndex = 7;
-            // 
-            // btnAddModule
-            // 
-            this.btnAddModule.Location = new System.Drawing.Point(385, 368);
-            this.btnAddModule.Name = "btnAddModule";
-            this.btnAddModule.Size = new System.Drawing.Size(75, 23);
-            this.btnAddModule.TabIndex = 8;
-            this.btnAddModule.Text = "Add";
-            this.btnAddModule.UseVisualStyleBackColor = true;
-            this.btnAddModule.Click += new System.EventHandler(this.btnAddModule_Click);
             // 
             // btnRemoveModule
             // 
@@ -273,11 +196,100 @@
             this.btnRemoveModule.UseVisualStyleBackColor = true;
             this.btnRemoveModule.Click += new System.EventHandler(this.btnRemoveModule_Click);
             // 
+            // btnAddModule
+            // 
+            this.btnAddModule.Location = new System.Drawing.Point(385, 368);
+            this.btnAddModule.Name = "btnAddModule";
+            this.btnAddModule.Size = new System.Drawing.Size(75, 23);
+            this.btnAddModule.TabIndex = 8;
+            this.btnAddModule.Text = "Add";
+            this.btnAddModule.UseVisualStyleBackColor = true;
+            this.btnAddModule.Click += new System.EventHandler(this.btnAddModule_Click);
+            // 
+            // txtModuleName
+            // 
+            this.txtModuleName.Location = new System.Drawing.Point(10, 243);
+            this.txtModuleName.Name = "txtModuleName";
+            this.txtModuleName.Size = new System.Drawing.Size(450, 20);
+            this.txtModuleName.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 227);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Application Name";
+            // 
+            // txtModuleArguments
+            // 
+            this.txtModuleArguments.Location = new System.Drawing.Point(10, 326);
+            this.txtModuleArguments.Name = "txtModuleArguments";
+            this.txtModuleArguments.Size = new System.Drawing.Size(450, 20);
+            this.txtModuleArguments.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 311);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Arguments";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 266);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Application Path";
+            // 
+            // btnSearchDir
+            // 
+            this.btnSearchDir.Location = new System.Drawing.Point(467, 283);
+            this.btnSearchDir.Name = "btnSearchDir";
+            this.btnSearchDir.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchDir.TabIndex = 2;
+            this.btnSearchDir.Text = "Open";
+            this.btnSearchDir.UseVisualStyleBackColor = true;
+            this.btnSearchDir.Click += new System.EventHandler(this.btnSearchDir_Click);
+            // 
+            // txtModulePath
+            // 
+            this.txtModulePath.Enabled = false;
+            this.txtModulePath.Location = new System.Drawing.Point(10, 283);
+            this.txtModulePath.Name = "txtModulePath";
+            this.txtModulePath.Size = new System.Drawing.Size(450, 20);
+            this.txtModulePath.TabIndex = 1;
+            // 
+            // listModules
+            // 
+            this.listModules.FormattingEnabled = true;
+            this.listModules.Location = new System.Drawing.Point(6, 19);
+            this.listModules.Name = "listModules";
+            this.listModules.Size = new System.Drawing.Size(536, 186);
+            this.listModules.TabIndex = 0;
+            this.listModules.SelectedIndexChanged += new System.EventHandler(this.listModules_SelectedIndexChanged);
+            // 
+            // btnSaveConfig
+            // 
+            this.btnSaveConfig.Location = new System.Drawing.Point(439, 415);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(163, 23);
+            this.btnSaveConfig.TabIndex = 3;
+            this.btnSaveConfig.Text = "Save configuration";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -319,6 +331,7 @@
         private System.Windows.Forms.Button btnRemoveModule;
         private System.Windows.Forms.Button btnAddModule;
         private System.Windows.Forms.OpenFileDialog ofd;
+        private System.Windows.Forms.Button btnSaveConfig;
     }
 }
 

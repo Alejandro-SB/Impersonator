@@ -35,16 +35,16 @@
             }
         }
 
-        [ConfigurationProperty("args", IsRequired = true)]
+        [ConfigurationProperty("args", IsRequired = false)]
         public string Arguments
         {
             get
             {
-                return this["arguments"] as string;
+                return this["args"] as string;
             }
             set
             {
-                this["arguments"] = value;
+                this["args"] = value;
             }
         }
     }

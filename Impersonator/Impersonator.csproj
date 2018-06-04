@@ -53,6 +53,11 @@
     <Compile Include="Classes\UserMenuItem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\Win32\Win32Helper.cs" />
+    <Compile Include="Classes\Win32\Win32LogonFlags.cs" />
+    <Compile Include="Classes\Win32\Win32LogonType.cs" />
+    <Compile Include="Classes\Win32\Win32ProcessInformation.cs" />
+    <Compile Include="Classes\Win32\Win32StartupInfo.cs" />
     <Compile Include="Configuration\ConfigurationHelper.cs" />
     <Compile Include="Configuration\ModuleCollection.cs" />
     <Compile Include="Configuration\ModuleElement.cs" />

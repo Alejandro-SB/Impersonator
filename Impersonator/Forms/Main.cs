@@ -39,6 +39,7 @@
             foreach(var item in this.notifyContextMenu.Items.OfType<ModuleMenuItem>().ToList())
             {
                 this.notifyContextMenu.Items.Remove(item);
+                item.Dispose();
             }
 
             foreach(var module in this.Modules)
@@ -161,6 +162,11 @@
             {
                 this.txtModulePath.Text = this.ofd.FileName;
             }
+        }
+
+        private void btnSaveConfig_Click(object sender, EventArgs e)
+        {
+            this._helper.SaveConfiguration(this.Users, this.Modules);
         }
     }
 }
