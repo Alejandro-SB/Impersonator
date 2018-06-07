@@ -61,6 +61,8 @@
         private void settingsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            this.Show();
         }
 
         private void btnAddUser_Click(object sender, System.EventArgs e)
@@ -167,6 +169,20 @@
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
             this._helper.SaveConfiguration(this.Users, this.Modules);
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+                this.Hide();
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

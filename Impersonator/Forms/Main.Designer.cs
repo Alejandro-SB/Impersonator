@@ -55,6 +55,7 @@
             this.listModules = new System.Windows.Forms.ListBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.btnSaveConfig = new System.Windows.Forms.Button();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyContextMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,9 +72,10 @@
             // 
             this.notifyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.notifyContextMenu.Name = "notifyContextMenu";
-            this.notifyContextMenu.Size = new System.Drawing.Size(117, 32);
+            this.notifyContextMenu.Size = new System.Drawing.Size(117, 54);
             // 
             // toolStripSeparator1
             // 
@@ -284,6 +286,13 @@
             this.btnSaveConfig.UseVisualStyleBackColor = true;
             this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItem1.Text = "Exit";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +305,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Impersonator";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.notifyContextMenu.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -332,6 +342,7 @@
         private System.Windows.Forms.Button btnAddModule;
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Button btnSaveConfig;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

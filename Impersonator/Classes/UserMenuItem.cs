@@ -4,6 +4,7 @@
     using System.IO;
     using System.Diagnostics;
     using System.Windows.Forms;
+    using System.Runtime.InteropServices;
 
     class UserMenuItem : ToolStripMenuItem
     {
@@ -29,8 +30,9 @@
             var module = moduleItem.GetModule();
 
             StartupInfo startupInfo = new StartupInfo();
+            startupInfo.cb = Marshal.SizeOf(startupInfo);
 
-            Win32Helper.CreateProcessWithLogonW(user.Name, user.Domain, user.Password, (int)LogonFlags.LOGON_NETCREDENTIALS_ONLY, module.Name, module.Command, 0, IntPtr.Zero, Path.GetFullPath(module.Command), ref startupInfo, out _);
+            Win32Helper.CreateProcessWithLogonW(user.Name, user.Domain, user.Password, (int)LogonFlags.LOGON_NETCREDENTIALS_ONLY, null, module.Command, 0, IntPtr.Zero, null, ref startupInfo, out var pi);
         }
     }
 }
