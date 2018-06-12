@@ -34,7 +34,10 @@
             this.notifyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUserDisplayName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnRemoveUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.MaskedTextBox();
@@ -55,7 +58,7 @@
             this.listModules = new System.Windows.Forms.ListBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.btnSaveConfig = new System.Windows.Forms.Button();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.chkAuthNetwork = new System.Windows.Forms.CheckBox();
             this.notifyContextMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,7 +68,7 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.notifyContextMenu;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "Impersonator";
             this.notifyIcon1.Visible = true;
             // 
             // notifyContextMenu
@@ -89,8 +92,18 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItem1.Text = "Exit";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkAuthNetwork);
+            this.groupBox1.Controls.Add(this.txtUserDisplayName);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnRemoveUser);
             this.groupBox1.Controls.Add(this.btnAddUser);
             this.groupBox1.Controls.Add(this.txtPassword);
@@ -105,10 +118,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
             // 
+            // txtUserDisplayName
+            // 
+            this.txtUserDisplayName.Location = new System.Drawing.Point(6, 227);
+            this.txtUserDisplayName.Name = "txtUserDisplayName";
+            this.txtUserDisplayName.Size = new System.Drawing.Size(177, 20);
+            this.txtUserDisplayName.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 210);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Display Name";
+            // 
             // btnRemoveUser
             // 
             this.btnRemoveUser.Enabled = false;
-            this.btnRemoveUser.Location = new System.Drawing.Point(96, 326);
+            this.btnRemoveUser.Location = new System.Drawing.Point(93, 368);
             this.btnRemoveUser.Name = "btnRemoveUser";
             this.btnRemoveUser.Size = new System.Drawing.Size(90, 23);
             this.btnRemoveUser.TabIndex = 2;
@@ -118,7 +147,7 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(6, 326);
+            this.btnAddUser.Location = new System.Drawing.Point(3, 368);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(84, 23);
             this.btnAddUser.TabIndex = 4;
@@ -128,16 +157,16 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(6, 283);
+            this.txtPassword.Location = new System.Drawing.Point(6, 306);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(180, 20);
+            this.txtPassword.Size = new System.Drawing.Size(177, 20);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 267);
+            this.label2.Location = new System.Drawing.Point(3, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
@@ -145,15 +174,15 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(6, 243);
+            this.txtUsername.Location = new System.Drawing.Point(6, 266);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(180, 20);
+            this.txtUsername.Size = new System.Drawing.Size(177, 20);
             this.txtUsername.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 227);
+            this.label1.Location = new System.Drawing.Point(3, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 2;
@@ -210,7 +239,7 @@
             // 
             // txtModuleName
             // 
-            this.txtModuleName.Location = new System.Drawing.Point(10, 243);
+            this.txtModuleName.Location = new System.Drawing.Point(6, 227);
             this.txtModuleName.Name = "txtModuleName";
             this.txtModuleName.Size = new System.Drawing.Size(450, 20);
             this.txtModuleName.TabIndex = 7;
@@ -218,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 227);
+            this.label5.Location = new System.Drawing.Point(3, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 6;
@@ -226,7 +255,7 @@
             // 
             // txtModuleArguments
             // 
-            this.txtModuleArguments.Location = new System.Drawing.Point(10, 326);
+            this.txtModuleArguments.Location = new System.Drawing.Point(6, 310);
             this.txtModuleArguments.Name = "txtModuleArguments";
             this.txtModuleArguments.Size = new System.Drawing.Size(450, 20);
             this.txtModuleArguments.TabIndex = 5;
@@ -234,7 +263,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 311);
+            this.label4.Location = new System.Drawing.Point(3, 295);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 4;
@@ -243,7 +272,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 266);
+            this.label3.Location = new System.Drawing.Point(3, 250);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 3;
@@ -251,7 +280,7 @@
             // 
             // btnSearchDir
             // 
-            this.btnSearchDir.Location = new System.Drawing.Point(467, 283);
+            this.btnSearchDir.Location = new System.Drawing.Point(463, 267);
             this.btnSearchDir.Name = "btnSearchDir";
             this.btnSearchDir.Size = new System.Drawing.Size(75, 23);
             this.btnSearchDir.TabIndex = 2;
@@ -262,7 +291,7 @@
             // txtModulePath
             // 
             this.txtModulePath.Enabled = false;
-            this.txtModulePath.Location = new System.Drawing.Point(10, 283);
+            this.txtModulePath.Location = new System.Drawing.Point(6, 267);
             this.txtModulePath.Name = "txtModulePath";
             this.txtModulePath.Size = new System.Drawing.Size(450, 20);
             this.txtModulePath.TabIndex = 1;
@@ -286,12 +315,15 @@
             this.btnSaveConfig.UseVisualStyleBackColor = true;
             this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
-            // toolStripMenuItem1
+            // chkAuthNetwork
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.toolStripMenuItem1.Text = "Exit";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.chkAuthNetwork.AutoSize = true;
+            this.chkAuthNetwork.Location = new System.Drawing.Point(6, 332);
+            this.chkAuthNetwork.Name = "chkAuthNetwork";
+            this.chkAuthNetwork.Size = new System.Drawing.Size(154, 30);
+            this.chkAuthNetwork.TabIndex = 7;
+            this.chkAuthNetwork.Text = "Authenticate over network \r\n(/netonly)";
+            this.chkAuthNetwork.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -343,6 +375,9 @@
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Button btnSaveConfig;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.TextBox txtUserDisplayName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkAuthNetwork;
     }
 }
 

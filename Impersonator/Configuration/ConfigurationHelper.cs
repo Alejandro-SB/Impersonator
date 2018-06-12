@@ -21,7 +21,7 @@
 
             foreach (UserElement user in userElements)
             {
-                users.Add(new User(user.Name, user.Domain, user.Password));
+                users.Add(new User(user.Name, user.Domain, user.Password, user.AuthenticateOverNetwork));
             }
 
             return users;
@@ -54,8 +54,7 @@
         {
             return (ModuleSection)this._config.GetSection("Modules") ?? new ModuleSection();
         }
-
-
+        
         internal void SaveConfiguration(IList<User> users, IList<Module> modules)
         {
             var userSection = this._getUsersSection();
@@ -70,7 +69,8 @@
                 {
                     Name = user.Name,
                     Domain = user.Domain,
-                    Password = user.Password
+                    Password = user.Password,
+                    AuthenticateOverNetwork = user.AuthenticateNetwork
                 });
             }
 

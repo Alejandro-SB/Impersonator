@@ -67,17 +67,25 @@
 
         private void btnAddUser_Click(object sender, System.EventArgs e)
         {
-            //TODO: Add validation
             if(!string.IsNullOrEmpty(this.txtUsername.Text) && !string.IsNullOrEmpty(this.txtPassword.Text) && this.txtUsername.Text.Contains("\\"))
             {
                 var domain = this.txtUsername.Text.Split('\\')[0];
                 var user = this.txtUsername.Text.Split('\\')[1];
                 var pwd = this.txtPassword.Text;
+                var overNetwork = this.chkAuthNetwork.Checked;
 
-                this.Users.Add(new User(user, domain, pwd));
+                this.Users.Add(new User(user, domain, pwd, overNetwork));
                 RestoreUserControls();
                 CreateMenuItems();
             }
+        }
+
+        private bool ValidateUserControls()
+        {
+            var username = this.txtUsername.Text;
+            var pass = this.txtUserDisplayName.Text;
+
+            return !(pass.IsNullOrWhitespace() || username.IsNullOrWhitespace());
         }
 
         private void listUsers_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -92,10 +100,12 @@
 
         private void RestoreUserControls()
         {
+            this.txtUserDisplayName.Clear();
             this.txtPassword.Clear();
             this.txtUsername.Clear();
             this.btnRemoveUser.Enabled = false;
             this.listUsers.SelectedIndex = -1;
+            this.chkAuthNetwork.Checked = false;
         }
 
         private void btnRemoveUser_Click(object sender, System.EventArgs e)

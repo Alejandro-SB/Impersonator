@@ -16,6 +16,7 @@
                 this["name"] = value;
             }
         }
+
         [ConfigurationProperty("password", IsRequired = true)]
         public string Password
         {
@@ -28,6 +29,7 @@
                 this["password"] = value;
             }
         }
+
         [ConfigurationProperty("domain", IsRequired = true)]
         public string Domain
         {
@@ -38,6 +40,19 @@
             set
             {
                 this["domain"] = value;
+            }
+        }
+
+        [ConfigurationProperty("overNetwork", IsRequired = true)]
+        public bool AuthenticateOverNetwork
+        {
+            get
+            {
+                return (bool)this["overNetwork"];
+            }
+            set
+            {
+                this["overNetwork"] = value;
             }
         }
     }

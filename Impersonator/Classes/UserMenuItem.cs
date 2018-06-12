@@ -29,10 +29,12 @@
             var user = userItem.GetUser();
             var module = moduleItem.GetModule();
 
+            var logonFlags = user.AuthenticateNetwork ? LogonFlags.LOGON_NETCREDENTIALS_ONLY : LogonFlags.None;
+
             StartupInfo startupInfo = new StartupInfo();
             startupInfo.cb = Marshal.SizeOf(startupInfo);
 
-            Win32Helper.CreateProcessWithLogonW(user.Name, user.Domain, user.Password, (int)LogonFlags.LOGON_NETCREDENTIALS_ONLY, null, module.Command, 0, IntPtr.Zero, null, ref startupInfo, out var pi);
+            Win32Helper.CreateProcessWithLogonW(user.Name, user.Domain, user.Password, (int)logonFlags, null, module.Command, 0, IntPtr.Zero, null, ref startupInfo, out var pi);
         }
     }
 }
